@@ -158,6 +158,15 @@
       "category": "Humor",
       "price": 7.99,
       "quantity": 12
+    },
+    {
+      "isbn": "jhsbcjads",
+      "title": "Life is amazing",
+      "authorId": 1,
+      "category": "non-fiction",
+      "price": 24,
+      "quantity": 10,
+      "id": 9
     }
   ],
   "users": [
