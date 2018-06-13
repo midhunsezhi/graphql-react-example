@@ -8,7 +8,7 @@ export const typeDefs = `
       authorID: Int!
       category: String
       price: Float
-      quanitity: Int
+      quantity: Int
     }
 
     type Query {
