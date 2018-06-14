@@ -8,9 +8,13 @@ import {BookFormComponent} from './components/BookFormComponent';
 const APP_QUERY = gql`
   query App {
     ...Books
+    ...Authors
+    ...Categories
   }
 
   ${BookTable.fragments.books}
+  ${BookFormComponent.fragments.authors}
+  ${BookFormComponent.fragments.categories}
 `;
 
 const INSERT_BOOK_MUTATION = gql`
@@ -89,7 +93,10 @@ export class App extends Component {
                   
                 };
 
-                return <BookFormComponent onSubmit={saveBook} />;
+                return <BookFormComponent 
+                authors= {data.authors}
+                categories = {data.categories}
+                onSubmit={saveBook} />;
 
               }}
             </Mutation>

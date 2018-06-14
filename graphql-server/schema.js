@@ -15,6 +15,19 @@ export const typeDefs = `
         message: String
         books: [Book]
         book(id: ID!): Book
+        authors: [Author]
+        categories: [Category]
+    }
+
+    type   Author {
+      id: ID!
+      firstName: String
+      lastName: String
+    }
+
+    type Category {
+      id: ID!
+      name: String
     }
 
     type Mutation {

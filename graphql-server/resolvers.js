@@ -11,6 +11,16 @@ export const resolvers = {
         book: async (_, { id }, { restURL }) => {
           const res = await fetch(`${restURL}/books/${encodeURIComponent(id)}`);
           return await res.json();
+        },
+
+        authors: async (_1, _2, { restURL }) => {
+          const res = await fetch(`${restURL}/authors`)
+          return await res.json();
+        },
+
+        categories: async (_1, _2, { restURL }) => {
+          const res = await fetch(`${restURL}/categories`)
+          return await res.json();
         }
     },
 

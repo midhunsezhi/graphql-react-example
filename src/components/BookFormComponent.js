@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import gql from 'graphql-tag';
 
 export class BookFormComponent extends Component{
   state = {
@@ -6,7 +7,8 @@ export class BookFormComponent extends Component{
     isbn: "",
     category: "",
     price: "",
-    quantity: ""
+    quantity: "",
+    authorId: ""
   }
   handleSubmit = e => {
     e.preventDefault();
@@ -17,7 +19,8 @@ export class BookFormComponent extends Component{
       isbn: "",
       category: "",
       price: "",
-      quantity: ""
+      quantity: "",
+      authorId: ""
     });
   }
   handleChange = (e) => {
@@ -47,22 +50,37 @@ export class BookFormComponent extends Component{
           />
         </label>
         <br/>
-        <label>Author ID: 
-          <input 
-          type='text'
-          name='authorId'
+        <label>Author: 
+          <select 
+          name="authorId" 
           value={this.state.authorId}
-          onChange={this.handleChange}
-          />
+          onChange={this.handleChange}>
+            <option value="">{"-- Select One --"}</option>
+            
+            { this.props.authors && this.props.authors.map(author => <option 
+                key={author.id} 
+                value={author.id}
+                >
+                {`${author.firstName} ${author.lastName}`}
+              </option>
+            )}
+          </select>
         </label>
         <br/>
         <label>Category: 
-          <input 
-          type='text'
-          name='category'
+          <select 
+          name="category" 
           value={this.state.category}
-          onChange={this.handleChange}
-          />
+          onChange={this.handleChange}>
+            <option value="">{"-- Select One --"}</option>
+            { this.props.categories && this.props.categories.map(category => <option
+                key={category.id}
+                value={category.name}
+              >
+                {category.name}
+              </option>
+            )}
+          </select>
         </label>
         <br/>
         <label>Price: 
@@ -87,3 +105,23 @@ export class BookFormComponent extends Component{
     )
   }
 }
+
+BookFormComponent.fragments = {
+  authors: gql`
+    fragment Authors on Query {
+      authors {
+        id
+        firstName
+        lastName
+      }
+    }`,
+  categories: gql`
+    fragment Categories on Query {
+      categories {
+        id
+        name
+      }
+      __typename
+    }
+  `,
+};

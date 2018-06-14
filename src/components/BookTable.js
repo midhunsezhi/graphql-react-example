@@ -33,6 +33,7 @@ export class BookTable extends React.Component {
           <th>ISBN</th>
           <th>Price</th>
           <th>Qty</th>
+          <th>Category</th>
           <th>Action</th>
         </tr>
       </thead>

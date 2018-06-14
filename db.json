@@ -86,69 +86,38 @@
       "lastName": "Jones"
     }
   ],
-  "books": [
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fiction"
+    },
     {
       "id": 2,
-      "isbn": "111222AAAB",
-      "title": "Good Fellows",
-      "authorId": 2,
-      "category": "Inspirational",
-      "price": 4.99,
-      "quantity": 34
+      "name": "Fantasy"
     },
     {
-      "id": 5,
-      "isbn": "111222AAAE",
-      "title": "Debating Silence",
-      "authorId": 3,
-      "category": "Humor",
-      "price": 7.99,
-      "quantity": 6
-    },
+      "id": 3,
+      "name": "History"
+    }
+  ],
+  "books": [
     {
-      "id": 6,
-      "isbn": "111222AAAF",
-      "title": "Midnight Killer",
-      "authorId": 3,
-      "category": "Mystery",
-      "price": 10.99,
-      "quantity": 45
-    },
-    {
-      "id": 7,
-      "isbn": "111222AAAG",
-      "title": "History of People",
-      "authorId": 2,
-      "category": "Historical",
-      "price": 15.99,
-      "quantity": 56
-    },
-    {
-      "id": 8,
-      "isbn": "111222AAAH",
-      "title": "Crazy People",
+      "isbn": "lmao",
+      "title": "Life is great",
       "authorId": 1,
-      "category": "Humor",
-      "price": 7.99,
-      "quantity": 12
+      "category": "Fiction",
+      "price": 23,
+      "quantity": 12,
+      "id": 1
     },
     {
-      "isbn": "jhsbcjads",
-      "title": "Life is amazing",
+      "isbn": "jsx",
+      "title": "hello",
       "authorId": 1,
-      "category": "non-fiction",
-      "price": 24,
-      "quantity": 10,
-      "id": 9
-    },
-    {
-      "isbn": "jhsbcjads",
-      "title": "Life is amazing",
-      "authorId": 1,
-      "category": "non-fiction",
-      "price": 24,
-      "quantity": 10,
-      "id": 10
+      "category": "Fiction",
+      "price": 12,
+      "quantity": 345,
+      "id": 2
     }
   ],
   "users": [
