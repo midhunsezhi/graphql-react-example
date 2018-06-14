@@ -26,6 +26,11 @@ mutation InsertBook($book: InsertBookInput!) {
   }
 }`;
 
+const DELETE_BOOK_MUTATION = gql`
+  mutation DeleteBook($id: ID!) {
+    deleteBook(id: $id) 
+  }
+`
 export class App extends Component {
 
   render() {
@@ -36,7 +41,28 @@ export class App extends Component {
           if (error) return 'Error...';
 
           return <React.Fragment>
-            <BookTable books={data.books} />
+            <Mutation mutation={DELETE_BOOK_MUTATION}>
+            {deleteBook => {
+              const removeBook = id => {
+                deleteBook({
+                  variables: {id},
+                  optimisticResponse: {
+                    deleteBook: id,
+                  },
+                  update: (store, { data: { deleteBook: id}}) => {
+                    const data = store.readQuery({ query: APP_QUERY });
+                    data.books = data.books.filter((book) => {
+                      return book.id !== id
+                    });
+                    store.writeQuery({ query: APP_QUERY, data });
+                  }
+                })
+              }
+              return <BookTable books={data.books} onDelete={removeBook}/>
+            }}
+              
+            </Mutation>
+            
             <br /> <br />
             <Mutation mutation={INSERT_BOOK_MUTATION}>
               {insertBook => {

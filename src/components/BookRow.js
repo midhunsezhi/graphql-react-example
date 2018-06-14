@@ -10,7 +10,10 @@ export const BookRow = props => {
   <td>{props.book.price}</td>
   <td>{props.book.qty}</td>
   <td><button type="button" onClick={() => props.onToggleDetail(props.book.id)}>
-    Toggle View Detail</button></td>
+    Toggle View Detail</button>
+    <button type="button" onClick={() => props.onDelete(props.book.id)}>
+    Delete</button>
+    </td>
 </tr>
 
 };
@@ -19,4 +22,5 @@ BookRow.fragments = {
   bookRow: gql`fragment BookRow on Book {
     id title isbn price qty: quantity __typename
   }`,
+  
 };

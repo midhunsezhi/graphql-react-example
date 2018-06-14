@@ -23,6 +23,13 @@ export const resolvers = {
         });
 
         return await res.json();
+      },
+      deleteBook: async (_, { id }, { restURL }) => {
+        const res = await fetch(`${restURL}/books/${encodeURIComponent(id)}`, {
+          method: 'DELETE'
+        })
+
+        return id;
       }
     }
 };

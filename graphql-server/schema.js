@@ -19,6 +19,7 @@ export const typeDefs = `
 
     type Mutation {
       insertBook(book: InsertBookInput!): Book
+      deleteBook(id: ID!): ID
     }
 
     input InsertBookInput {
@@ -29,4 +30,5 @@ export const typeDefs = `
       price: Float
       quantity: Int
     }
+
 `

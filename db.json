@@ -88,15 +88,6 @@
   ],
   "books": [
     {
-      "id": 1,
-      "isbn": "111222AAAA",
-      "title": "A Friend's Hope",
-      "authorId": 1,
-      "category": "Inspirational",
-      "price": 12.99,
-      "quantity": 4
-    },
-    {
       "id": 2,
       "isbn": "111222AAAB",
       "title": "Good Fellows",
@@ -104,24 +95,6 @@
       "category": "Inspirational",
       "price": 4.99,
       "quantity": 34
-    },
-    {
-      "id": 3,
-      "isbn": "111222AAAC",
-      "title": "Forbidden Fellowship",
-      "authorId": 3,
-      "category": "Romance",
-      "price": 5,
-      "quantity": 10
-    },
-    {
-      "id": 4,
-      "isbn": "111222AAAD",
-      "title": "Quiet Ones",
-      "authorId": 2,
-      "category": "Mystery",
-      "price": 8.99,
-      "quantity": 6
     },
     {
       "id": 5,
@@ -176,15 +149,6 @@
       "price": 24,
       "quantity": 10,
       "id": 10
-    },
-    {
-      "isbn": "a",
-      "title": "a",
-      "authorId": 12,
-      "category": "qwe",
-      "price": 2,
-      "quantity": 45,
-      "id": 11
     }
   ],
   "users": [

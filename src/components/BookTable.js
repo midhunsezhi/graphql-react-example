@@ -15,11 +15,15 @@ export class BookTable extends React.Component {
     };
   }
 
-  toogleBookDetail = bookId => {
+  toggleBookDetail = bookId => {
     this.setState({
       viewDetailBookId: this.state.viewDetailBookId === bookId ? -1 : bookId,
     })
   };
+
+  deleteBook = bookId => {
+    this.props.onDelete(bookId);
+  }
   
   render() { 
     return <table>
@@ -34,7 +38,10 @@ export class BookTable extends React.Component {
       </thead>
       <tbody>
         {this.props.books.map(b => <React.Fragment key={b.id}>
-          <BookRow onToggleDetail={this.toogleBookDetail} book={b} />
+          <BookRow 
+          onToggleDetail={this.toggleBookDetail} book={b} 
+          onDelete={this.deleteBook}
+          />
           {b.id === this.state.viewDetailBookId && <BookDetailRowQuery bookId={b.id} />}
         </React.Fragment>)}
       </tbody>
