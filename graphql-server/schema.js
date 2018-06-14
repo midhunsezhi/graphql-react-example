@@ -44,4 +44,13 @@ export const typeDefs = `
       quantity: Int
     }
 
+    input EditBookInput {
+      id: ID!
+      isbn: String!
+      title: String!
+      authorId: Int!
+      category: String
+      price: Float
+      quantity: Int
+    }
 `
