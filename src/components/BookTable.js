@@ -34,6 +34,7 @@ export class BookTable extends React.Component {
           <th>Price</th>
           <th>Qty</th>
           <th>Category</th>
+          <th>Author</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -41,7 +42,9 @@ export class BookTable extends React.Component {
         {this.props.books.map(b => <React.Fragment key={b.id}>
           <BookRow 
           onToggleDetail={this.toggleBookDetail} book={b} 
-          onDelete={this.deleteBook}
+          authors={this.props.authors}
+          categories={this.props.categories}
+          APP_QUERY={this.props.APP_QUERY}
           />
           {b.id === this.state.viewDetailBookId && <BookDetailRowQuery bookId={b.id} />}
         </React.Fragment>)}
@@ -55,7 +58,7 @@ BookTable.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,
-    qty: PropTypes.number,
+    quantity: PropTypes.number,
   })),
 };
 

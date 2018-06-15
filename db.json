@@ -102,22 +102,40 @@
   ],
   "books": [
     {
+      "id": 1,
       "isbn": "lmao",
-      "title": "Life is great",
-      "authorId": 1,
-      "category": "Fiction",
+      "title": "Life is great now",
+      "authorId": 2,
+      "categoryId": 2,
       "price": 23,
-      "quantity": 12,
-      "id": 1
+      "quantity": 12
     },
     {
-      "isbn": "jsx",
-      "title": "hello",
+      "isbn": "haha",
+      "title": "GraphQl is awesome",
       "authorId": 1,
-      "category": "Fiction",
+      "categoryId": 3,
       "price": 12,
       "quantity": 345,
       "id": 2
+    },
+    {
+      "isbn": "yay",
+      "title": "working",
+      "authorId": 3,
+      "categoryId": 1,
+      "price": 12,
+      "quantity": 3,
+      "id": 3
+    },
+    {
+      "isbn": "w",
+      "title": "hey",
+      "authorId": 2,
+      "categoryId": 3,
+      "price": 23,
+      "quantity": 12,
+      "id": 4
     }
   ],
   "users": [

@@ -5,7 +5,7 @@ export class BookFormComponent extends Component{
   state = {
     title: "",
     isbn: "",
-    category: "",
+    categoryId: "",
     price: "",
     quantity: "",
     authorId: ""
@@ -17,7 +17,7 @@ export class BookFormComponent extends Component{
     this.setState({
       title: "",
       isbn: "",
-      category: "",
+      categoryId: "",
       price: "",
       quantity: "",
       authorId: ""
@@ -61,7 +61,7 @@ export class BookFormComponent extends Component{
                 key={author.id} 
                 value={author.id}
                 >
-                {`${author.firstName} ${author.lastName}`}
+                {author.firstName}
               </option>
             )}
           </select>
@@ -69,13 +69,13 @@ export class BookFormComponent extends Component{
         <br/>
         <label>Category: 
           <select 
-          name="category" 
-          value={this.state.category}
+          name="categoryId" 
+          value={this.state.categoryId}
           onChange={this.handleChange}>
             <option value="">{"-- Select One --"}</option>
             { this.props.categories && this.props.categories.map(category => <option
                 key={category.id}
-                value={category.name}
+                value={category.id}
               >
                 {category.name}
               </option>
@@ -112,7 +112,6 @@ BookFormComponent.fragments = {
       authors {
         id
         firstName
-        lastName
       }
     }`,
   categories: gql`

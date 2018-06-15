@@ -6,7 +6,13 @@ import gql from 'graphql-tag';
 const BOOK_DETAIL_QUERY = gql`
   query GetBook($id: ID!) {
     book(id: $id) {
-      id title isbn authorId category price quantity
+      id 
+      title 
+      isbn 
+      authorId 
+      categoryId 
+      price 
+      quantity
     }
   }
 `;

@@ -6,9 +6,11 @@ export const typeDefs = `
       isbn: String!
       title: String!
       authorId: Int!
-      category: String
+      categoryId: Int!
       price: Float
       quantity: Int
+      author: Author
+      category: Category
     }
 
     type Query {
@@ -36,20 +38,11 @@ export const typeDefs = `
     }
 
     input InsertBookInput {
+      id: ID
       isbn: String!
       title: String!
       authorId: Int!
-      category: String
-      price: Float
-      quantity: Int
-    }
-
-    input EditBookInput {
-      id: ID!
-      isbn: String!
-      title: String!
-      authorId: Int!
-      category: String
+      categoryId: Int!
       price: Float
       quantity: Int
     }

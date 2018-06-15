@@ -23,18 +23,22 @@ mutation InsertBook($book: InsertBookInput!) {
     id
     title
     isbn
-    category
+    categoryId
     authorId
     price
     quantity
+    category{
+      id
+      name
+    }
+    author {
+      id
+      firstName
+    }
+    __typename
   }
 }`;
 
-const DELETE_BOOK_MUTATION = gql`
-  mutation DeleteBook($id: ID!) {
-    deleteBook(id: $id) 
-  }
-`
 export class App extends Component {
 
   render() {
@@ -45,40 +49,30 @@ export class App extends Component {
           if (error) return 'Error...';
 
           return <React.Fragment>
-            <Mutation mutation={DELETE_BOOK_MUTATION}>
-            {deleteBook => {
-              const removeBook = id => {
-                deleteBook({
-                  variables: {id},
-                  optimisticResponse: {
-                    deleteBook: id,
-                  },
-                  update: (store, { data: { deleteBook: id}}) => {
-                    const data = store.readQuery({ query: APP_QUERY });
-                    data.books = data.books.filter((book) => {
-                      return book.id !== id
-                    });
-                    store.writeQuery({ query: APP_QUERY, data });
-                  }
-                })
-              }
-              return <BookTable books={data.books} onDelete={removeBook}/>
-            }}
-              
-            </Mutation>
+            <BookTable 
+              books={data.books} 
+              authors={data.authors}
+              categories={data.categories}
+              APP_QUERY={APP_QUERY}
+            />              
             
             <br /> <br />
+
             <Mutation mutation={INSERT_BOOK_MUTATION}>
               {insertBook => {
 
                 const saveBook = book => {
 
+                  const author = data.authors.filter(a => a.id === book.authorId)[0];
+                  const category = data.categories.filter(c => c.id === book.categoryId)[0];
                   insertBook({
                     variables: { book },
                     optimisticResponse: {
                       insertBook: {
                         id: '-2',
                         ...book,
+                        author,
+                        category,
                         __typename: 'Book',
                       }
                     },
@@ -90,7 +84,6 @@ export class App extends Component {
 
                     },
                   });
-                  
                 };
 
                 return <BookFormComponent 
